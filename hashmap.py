@@ -6,5 +6,4 @@ for i in range(1,int(nn)+1):
         a[strr]=a[strr]+1
     else:
         a[strr]=1
-
-        print(a)
+print(a)
