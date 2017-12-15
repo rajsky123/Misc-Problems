@@ -1,0 +1,11 @@
+a={}
+data="indiaa"
+for i in data:
+    if(a.get(i)!=None):
+        a[i]=a[i]+1
+    else:
+        a[i]=1
+
+for j in a:
+    if(a.get(j)>1):
+        print(j,a[j])
