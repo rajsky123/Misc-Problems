@@ -11,7 +11,7 @@ public class Test {
 		for(int i=0;i<ch.length;i++)
 		{   char newch=ch[i];
 			if(ch[i]!='\0')
-			for(int j=0;j<ch.length;j++)
+			for(int j=i;j<ch.length;j++)
 			{   
 				if(newch==ch[j])
 				{  cnt++;
@@ -21,9 +21,9 @@ public class Test {
 			
 			if(cnt>1)
 				System.out.println(newch+" "+cnt);
-			ch[i]='\0';
 			cnt=0;
 		}
 		
 }
 }
+
