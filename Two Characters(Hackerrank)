@@ -1,0 +1,49 @@
+import java.util.*;
+public class Test {
+
+	public static void main(String[] args) {
+		Scanner ss=new Scanner(System.in);
+		int no=ss.nextInt();
+		String s=ss.next();
+		String n;
+		int max1=0;
+		for(char i='a';i<='z';i++)
+			for(char j='a';j<='z';j++)
+			{   if(i!=j)
+				{n=pattern(s,i,j);
+				 if(check(n))
+					 max1=Math.max(max1, n.length());
+				}
+			}
+		System.out.println(max1);
+		
+}
+	static String pattern(String s,int a,int b)
+	{  
+		String temp="";
+		for(int i=0;i<s.length();i++)
+		{
+			if(s.charAt(i)==a || s.charAt(i)==b)
+				temp+=s.charAt(i);
+			
+		}
+		  return temp;
+		
+	}
+	static boolean check(String n)
+	{
+		
+		if(n.length()<2)
+		return false;
+	for(int i=1;i<n.length();i++)
+	{
+		if(n.charAt(i-1)==n.charAt(i))
+		{
+			
+			return false;
+		}
+			
+	}
+	return true;
+	}
+}
