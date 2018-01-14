@@ -1,0 +1,191 @@
+
+
+
+
+public class Test {
+	 
+		
+	 private class Node
+	{
+		Object ele;
+		Node next;
+		Node(Object e) 
+		{
+				ele=e;
+		}
+		Node(Object e,Node n)
+		{
+			ele=e;
+			next=n;
+		}
+	}
+	 
+	 private Node first;
+	 private int cnt;	
+	 
+	 public void add(Object x)
+	 {
+		 if(first==null)
+		 {
+			 first=new Node(x);
+			 cnt++;
+			 return;
+		 }
+		 Node temp=first;
+		 while(temp.next!=null)
+		 {
+			 temp=temp.next;
+		 }
+		 temp.next=new Node(x);
+		 cnt++;
+		 
+	 }
+	 
+	 public int size()
+	 {
+		 return cnt;
+	 }
+	 
+	 public void add(int index,Object x)
+	 {
+		 if(index>=size()) throw new IndexOutOfBoundsException();
+		 
+		 if(index==0)
+		 {
+			 first=new Node(x);
+			 cnt++;
+			 return;
+		 }
+		 Node temp=first;
+		 for(int i=1;i<index;i++)
+		 {
+			 temp=temp.next;
+		 }
+		 temp.next=new Node(x,temp.next);
+		 cnt++;
+		 
+	 }
+	 
+	 public Object get(int index)
+	 {
+		 if(index>=size()) throw new IndexOutOfBoundsException();
+		 Node temp=first;
+		 for(int i=1;i<=index;i++)
+		 {
+			 temp=temp.next;
+		 }
+		 return temp.ele;
+	 }
+	 public void removeByIndex(int index) {
+		 if(index>=size()) throw new IndexOutOfBoundsException();
+		 
+		 if(index==0)
+		 {
+			 first=first.next;
+			 cnt--;
+			 return;
+		 }
+		 if(index==size()-1) {
+			 Node temp=first;
+			 for(int i=1;i<index;i++)
+				 temp=temp.next;
+			 temp.next=null;
+			 cnt--;
+			 return;
+		 }
+		 Node temp=first;
+		 for(int i=1;i<index;i++)
+			 temp=temp.next;
+		     temp.next=temp.next.next;
+		     cnt--;
+		     
+	 }
+	 public void removeByElement(Object x) {
+		 if(first==null)
+		 {
+			 System.out.println("list is empty cant remove");
+			 return;
+		 }
+		 if(first.ele.equals(x))
+		 { first=first.next;
+		   cnt--;
+		   return;
+		 }
+		 Node temp=first;
+		 int xcnt=0;
+		 while(!temp.next.ele.equals(x) && xcnt<size()-2)
+		 {
+			 temp=temp.next;
+			 xcnt++;
+		 }
+		 if(temp.next.next==null)
+		 {   if(!temp.next.ele.equals(x))
+		 {
+			 System.out.println("invalid input,element is not present");
+			 return;
+		 }
+		 
+			 temp.next=null;
+		     cnt--;
+		 }
+		 else
+		 { temp.next=temp.next.next;
+		    cnt--;
+		 }
+	 }
+	 public void clearList()
+	 {
+		 first=null;
+		 cnt=0;
+	 }
+	 public void sortList()
+	 {
+		 if(first==null)
+		 {
+			 System.out.println("sorting not possible");
+			 return;
+		 }
+		 
+		 
+		 for(int i=0;i<size()-1;i++)
+		 {    Node temp=first;
+			 for(int j=0;j<size()-i-1;j++)
+			 {  int n1=(Integer)temp.ele;
+			    int n2=(Integer)temp.next.ele;
+			    
+			    
+				 if(n1>n2)
+		
+				 {  
+					 
+					 temp.ele=n2;
+					 temp.next.ele=n1;
+				
+				 }
+				 temp=temp.next;
+			 }
+			 
+		 }
+		 
+	 }
+	public static void main(String[] args) 
+{	
+		Test c=new Test();
+		c.add(20);
+		c.add(10);
+		c.add(2);
+		c.add(40);
+		c.add(5);
+		c.add(1, 100); 
+		for(int i=0;i<c.size();i++)
+		System.out.print(c.get(i)+" ");
+	    
+		c.sortList();
+
+	    System.out.println();
+		for(int i=0;i<c.size();i++)
+			System.out.print(c.get(i)+" ");  
+		
+	    
+}
+}
