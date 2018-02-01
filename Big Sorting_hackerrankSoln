@@ -1,0 +1,40 @@
+
+
+import java.util.*;
+
+
+public class Solution{
+	
+	public static void main(String[] args) {
+		
+		 ArrayList<String> l = new ArrayList<String>();
+		  Scanner ss=new Scanner(System.in);
+		  int n=ss.nextInt();
+		  for(int i=1;i<=n;i++)
+		  {
+			  String s=ss.next();
+			  l.add(s);
+		  }
+
+
+		   /* Sort statement*/
+		   Collections.sort(l,new Comp());
+		   for(String i:l)
+			   System.out.println(i);
+	}
+	
+}
+class Comp implements Comparator<String>
+{
+	public int compare(String a,String b)
+	{
+		if(a.length()==b.length())
+			return a.compareTo(b);
+		else 
+			return a.length()-b.length();
+			
+		
+	}
+
+	
+}
