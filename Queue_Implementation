@@ -1,0 +1,67 @@
+public class Test {
+	 
+		
+	 private class Node
+	{
+		Object ele;
+		Node next;
+		Node(Object e) 
+		{
+				ele=e;
+		}
+		
+	}
+	 
+	 private Node first;
+	 private int cnt;	
+	 
+	 public void add(Object x)
+	 {
+		 if(first==null)
+		 {
+			 first=new Node(x);
+			 cnt++;
+			 return;
+		 }
+		 Node temp=first;
+		 while(temp.next!=null)
+		 {
+			 temp=temp.next;
+		 }
+		 temp.next=new Node(x);
+		 cnt++;
+		 
+}
+	  public int size()
+	  {
+		  return cnt;
+	  }
+	  public Object peek()
+	  {
+		  if(size()==0)return null;
+		  return first.ele;
+	  }
+	  
+	  public Object poll()
+	  {
+		  if(size()==0)return null;
+		  Object ele=first.ele;
+		  first=first.next;
+		  cnt--;
+		  return ele;
+	  }
+	 public static void main(String[] args) 
+	 {	
+	 		Test c=new Test();
+	 		c.add(20);
+	 		c.add(10);
+	 		c.add(2);
+	 		c.add(40);
+	        c.add(5);
+	        System.out.println(c.peek());
+	        System.out.println(c.poll());
+	        System.out.println(c.peek());
+	        System.out.println(c.poll());
+	        System.out.println(c.peek());
+	 }
+}
