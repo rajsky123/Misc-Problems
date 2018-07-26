@@ -37,7 +37,7 @@ public class MaxHeap {
 
 		int temp=heap[index];
 		heap[index]=heap[largest];
-		heap[largest]=temp;
+		heap[largest]=temp; 
 	}
 	
 	private void printHeap() {
