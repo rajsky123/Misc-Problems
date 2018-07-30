@@ -37,7 +37,7 @@ public class BinarySearchTreeImplementation {
 	            root = new Node(key);
 	           }
 	        return root;
-	    }
+	    } 
 	 
 	    void searchElement(int key)
 	    {
