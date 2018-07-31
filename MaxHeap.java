@@ -83,12 +83,26 @@ public class MaxHeap {
 	    maxHeap.insertElementIntoHeap(100);
 	    maxHeap.printHeap();
 	}
-//outputs:
-//	2 4 5 1 6 7 8 
-//	8 6 7 1 4 2 5 
-//	100 8 7 6 4 2 5 1 
+/*outputs:
+	2 4 5 1 6 7 8 
+	8 6 7 1 4 2 5 
+	100 8 7 6 4 2 5 1 
 	
+ Before:
+        2
+      /   \
+     4     5
+    / \   / \
+   1   6  7  8
+   
+   After BuildMaxHeap
+   
+        8
+      /   \
+     6     7
+    / \   / \
+   1   4  2  5
 
-	
+*/	
 
 }
